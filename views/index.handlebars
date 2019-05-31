@@ -1,0 +1,48 @@
+<div class="container">
+  <h1 id = "burger-title">Burgers</h1>
+</div>
+
+
+
+
+
+
+
+
+<div class="container" id="burgerIWantToEat">
+<h2> Burgers I want to eat!!!</h2>
+    <ul>
+        {{#each burger}}
+            {{#unless is_devoured}}
+                {{> burger/burger-block }}
+            {{/unless}}
+            
+        {{/each}}
+    </ul>
+</div>
+<div class="container" id="burgerIAlreadyAte">
+    <h2>Burgers I already ate!!!</h2>
+    <ul>
+        {{#each burger}}
+            {{#if is_devoured}}
+            {{> burger/burger-block }}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
+
+<h2>Add a Burger</h2>
+<form class='create-form'>
+    <div class='group-form'>
+        <label for='burger'> Burger Name: </label>
+        <input type='text' id='burger' name='name'>
+    </div>
+    <div class='group-form'>
+        <label for='devoured'>Choose:</label>
+        <br>
+        <input type='radio' name='devoured' value='1' checked> Devoured! 
+        <br>
+        <input type='radio' name='devoured' value='0'> Looks yummy!
+    </div>
+    <button type='submit'> Add a Burger</button>
+</form>
